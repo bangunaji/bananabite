@@ -9,20 +9,7 @@
 	<meta name="keywords" content="free website templates, free html5, free template, free bootstrap, free website template, html5, css3, mobile first, responsive" />
 	<meta name="author" content="freehtml5.co" />
 
-	<!-- 
-	//////////////////////////////////////////////////////
-
-	FREE HTML5 TEMPLATE 
-	DESIGNED & DEVELOPED by FreeHTML5.co
-		
-	Website: 		http://freehtml5.co/
-	Email: 			info@freehtml5.co
-	Twitter: 		http://twitter.com/fh5co
-	Facebook: 		https://www.facebook.com/fh5co
-
-	//////////////////////////////////////////////////////
-	 -->
-
+	
   	<!-- Facebook and Twitter integration -->
 	<meta property="og:title" content=""/>
 	<meta property="og:image" content=""/>
@@ -239,18 +226,24 @@
 	<!-- Main -->
 	<script src="js/main.js"></script>
 
-	<script>
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+	 <!-- Script for Smooth Scroll -->
+    	<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  	<script>
+       	 $(document).ready(function () {
+            $('a[href^="#"]').on('click', function (e) {
                 e.preventDefault();
 
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-    </script>
+                var target = this.hash;
+                var $target = $(target);
 
+                $('html, body').stop().animate({
+                    'scrollTop': $target.offset().top
+                }, 900, 'swing', function () {
+                    window.location.hash = target;
+              			  });
+          		  });
+       		 });
+   	 </script>
 	</body>
 	
 </html>
